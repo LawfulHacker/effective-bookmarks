@@ -1,0 +1,28 @@
+{
+  "name": "Effective Bookmarks",
+  "version": "1.0",
+  "description": "An effective bookmark manager",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/star_16.png",
+      "32": "images/star_32.png",
+      "48": "images/star_48.png",
+      "128": "images/star_128.png"
+    }
+  },
+  "omnibox": { "keyword" : "eb" },
+  "options_page": "options.html",
+  "icons": {
+    "16": "images/star_16.png",
+    "32": "images/star_32.png",
+    "48": "images/star_48.png",
+    "128": "images/star_128.png"
+  },
+  "permissions": ["storage"],
+  "manifest_version": 2
+}
