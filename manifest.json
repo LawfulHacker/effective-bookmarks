@@ -23,6 +23,6 @@
     "48": "images/star_48.png",
     "128": "images/star_128.png"
   },
-  "permissions": ["storage"],
+  "permissions": ["bookmarks", "storage"],
   "manifest_version": 2
 }
