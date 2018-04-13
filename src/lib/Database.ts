@@ -1,44 +1,39 @@
 import Dexie from 'dexie';
+import * as uuid from 'uuid/v4';
 
 export interface IBookmark {
-  id?: number;
+  id?: string;
   title: string;
   url: string;
   browserBookmarkId: any;
 }
 
 export interface ITag {
-  id?: number;
+  id?: string;
   name: string;
 }
 
 export class Bookmark implements IBookmark {
-  id?: number;
+  id?: string;
   title: string;
   browserBookmarkId: any;
   url: string;
 
-  constructor(title: string, url: string, browserBookmarkId: any, id?:number) {
+  constructor(title: string, url: string, browserBookmarkId: any, id?:string) {
+    this.id = id ? id : uuid();
     this.title = title;
     this.url = url;
     this.browserBookmarkId = browserBookmarkId;
-
-    if (id) {
-      this.id = id;
-    }
   }
 }
 
 export class Tag implements ITag {
-  id?: number;
+  id?: string;
   name: string;
 
-  constructor(name: string, id?:number) {
+  constructor(name: string, id?:string) {
+    this.id = id ? id : uuid();
     this.name = name;
-
-    if (id) {
-      this.id = id;
-    }
   }
 }
 
@@ -50,8 +45,8 @@ export class BookmarkDatabase extends Dexie {
   constructor () {
       super("effective-bookmarks");
       this.version(1).stores({
-          bookmarks: '++id, title, &url, *tags',
-          tags: '++id, &name'
+          bookmarks: '&id, title, &url, *tags',
+          tags: '&id, &name'
       });
   }
 

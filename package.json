@@ -20,7 +20,8 @@
   "homepage": "https://github.com/LawfulHacker/effective-bookmarks#readme",
   "dependencies": {
     "dexie": "^2.0.2",
-    "moment": "^2.22.0"
+    "moment": "^2.22.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.49",
